@@ -27,7 +27,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/login"
-                className="bg-teal-600 text-white px-7 py-3 rounded-full font-semibold shadow hover:bg-teal-700 transition"
+                className="bg-blue-900 text-white px-7 py-3 rounded-full font-semibold shadow hover:bg-blue-700 transition"
               >
                 Sign In
               </Link>

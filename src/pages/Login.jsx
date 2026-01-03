@@ -13,20 +13,39 @@ export default function Login() {
     role: "customer",
   });
 
+  const [message, setMessage] = useState({
+    type: "",
+    text: "",
+  });
+
   const handleLogin = () => {
-    // ADMIN CHECK
+    
+    setMessage({ type: "", text: "" });
+
     if (form.role === "admin") {
       if (form.email !== ADMIN_EMAIL) {
-        alert("Unauthorized admin access");
+        setMessage({
+          type: "error",
+          text: "Unauthorized admin access. Invalid email address.",
+        });
         return;
       }
-      login({ role: "admin", name: "Admin Lihanda", email: form.email });
+
+      login({
+        role: "admin",
+        name: "Admin Lihanda",
+        email: form.email,
+      });
+
       navigate("/admin");
       return;
     }
 
-    // Retail or Customer (must register first)
-    alert("Please register first to continue.");
+    
+    setMessage({
+      type: "info",
+      text: "Please register first before signing in.",
+    });
   };
 
   return (
@@ -34,6 +53,21 @@ export default function Login() {
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">
         Sign In
       </h2>
+
+     
+      {message.text && (
+        <div
+          className={`mb-4 rounded-lg p-3 text-sm ${
+            message.type === "error"
+              ? "bg-red-100 text-red-700"
+              : message.type === "info"
+              ? "bg-blue-100 text-blue-700"
+              : "bg-green-100 text-green-700"
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
 
       <input
         type="email"
@@ -53,7 +87,7 @@ export default function Login() {
 
       <button
         onClick={handleLogin}
-        className="bg-teal-600 text-white w-full py-3 rounded-lg"
+        className="bg-teal-600 text-white w-full py-3 rounded-lg hover:bg-teal-700 transition"
       >
         Sign In
       </button>

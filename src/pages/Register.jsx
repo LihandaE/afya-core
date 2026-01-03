@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -17,10 +17,21 @@ export default function Register() {
     prescription: null,
   });
 
+  const [message, setMessage] = useState({
+    type: "",
+    text: "",
+  });
+
   const handleRegister = () => {
+    
+    setMessage({ type: "", text: "" });
+
     if (role === "retail") {
       if (!form.pharmacyName || !form.ppbLicence || !form.location) {
-        alert("All pharmacy fields required");
+        setMessage({
+          type: "error",
+          text: "All pharmacy fields are required.",
+        });
         return;
       }
 
@@ -31,12 +42,20 @@ export default function Register() {
         location: form.location,
       });
 
-      navigate("/retail");
+      setMessage({
+        type: "success",
+        text: "Retail pharmacy registered successfully.",
+      });
+
+      setTimeout(() => navigate("/retail"), 800);
     }
 
     if (role === "customer") {
       if (!form.name || !form.age || !form.contact || !form.location) {
-        alert("All patient details required");
+        setMessage({
+          type: "error",
+          text: "All patient details are required.",
+        });
         return;
       }
 
@@ -49,15 +68,44 @@ export default function Register() {
         prescription: form.prescription,
       });
 
-      navigate("/customer");
+      setMessage({
+        type: "success",
+        text: "Patient registered successfully.",
+      });
+
+      setTimeout(() => navigate("/customer"), 800);
     }
   };
+
+  
+  useEffect(() => {
+    if (message.text) {
+      const timer = setTimeout(
+        () => setMessage({ type: "", text: "" }),
+        3000
+      );
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   return (
     <div className="max-w-lg mx-auto mt-20 bg-white shadow rounded-xl p-6">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">
         Register
       </h2>
+
+      
+      {message.text && (
+        <div
+          className={`mb-6 rounded-lg p-3 text-sm ${
+            message.type === "error"
+              ? "bg-red-100 text-red-700"
+              : "bg-green-100 text-green-700"
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
 
       <select
         className="border p-3 w-full mb-6"
@@ -128,7 +176,7 @@ export default function Register() {
 
       <button
         onClick={handleRegister}
-        className="bg-teal-600 text-white w-full py-3 rounded-lg"
+        className="bg-teal-600 text-white w-full py-3 rounded-lg hover:bg-teal-700 transition"
       >
         Complete Registration
       </button>
