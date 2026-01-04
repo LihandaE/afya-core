@@ -45,7 +45,7 @@ export default function Home() {
           <div className="hidden md:block">
             <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
               <img
-                src="ChatGPT Image Dec 30, 2025, 12_18_53 PM.png"
+                src="src/assets/ChatGPT Image Dec 30, 2025, 12_18_53 PM.png"
                 alt="Pharmaceutical supply chain"
                 className="rounded-xl"
               />

@@ -127,7 +127,7 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
       
       
 <div>
-<img src="ChatGPT Image Jan 4, 2026, 09_01_45 PM.png" alt="Dr Martin" />
+<img src="src/assets/ChatGPT Image Jan 4, 2026, 09_01_45 PM.png" alt="Dr Martin" />
 </div>
 
 <div>
@@ -152,7 +152,7 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
      
 <div className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-8 text-center border border-gray-100">
 <div>
-<img src="ChatGPT Image Jan 4, 2026, 08_58_32 PM.png" alt="Dr Maxine" />
+<img src="src/assets/ChatGPT Image Jan 4, 2026, 08_58_32 PM.png" alt="Dr Maxine" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
           Dr. Maxine
@@ -169,7 +169,7 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
       
 <div className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-8 text-center border border-gray-100">
 <div >
-<img src="ChatGPT Image Jan 4, 2026, 08_51_00 PM.png" alt="Dr Louis Image" />
+<img src="src/assets/ChatGPT Image Jan 4, 2026, 08_51_00 PM.png" alt="Dr Louis Image" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
           Dr. Louis
@@ -186,7 +186,7 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
      
 <div className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-8 text-center border border-gray-100">
 <div>
-<img src="ChatGPT Image Jan 4, 2026, 08_55_26 PM.png" alt="Dr Noella" />
+<img src="src/assets/ChatGPT Image Jan 4, 2026, 08_55_26 PM.png" alt="Dr Noella" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
           Dr. Noella
