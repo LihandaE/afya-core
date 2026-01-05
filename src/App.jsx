@@ -7,7 +7,7 @@ import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminDashboard from "./dashboards/AdminDashboard";
-import RetailDashboard from "./dashboards/RetailDasboard";
+import RetailDashboard from "./dashboards/RetailDashboard"
 import CustomerDashboard from "./dashboards/CustomerDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
