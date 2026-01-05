@@ -4,7 +4,7 @@ return (
 <div className="bg-white">
       
 <section className="bg-gradient-to-br from-blue-50 via-white to-green-50">
-<div className="max-w-7xl mx-auto px-6 py-24 text-center">
+<div className="max-w-7xl mx-auto px-6 py-20 text-center">
 <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-6">
 About AfyaCore
 </h1>
@@ -132,16 +132,16 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
 
 <div>
 <h3 className="text-2xl font-bold text-blue-900 mb-1">
-          Dr. Martin
+    Dr. Martin
 </h3>
 <p className="text-teal-600 font-semibold mb-3">
     Founder & Chief Executive Officer
 </p>
 <p className="text-gray-600 leading-relaxed">
-      Dr. Martin founded AfyaCore with a vision to strengthen healthcare
-      systems through reliable pharmaceutical distribution. He provides
-      strategic leadership, drives innovation, and ensures the highest
-      standards of quality and compliance.
+    Dr. Martin founded AfyaCore with a vision to strengthen healthcare
+    systems through reliable pharmaceutical distribution. He provides
+    strategic leadership, drives innovation, and ensures the highest
+    standards of quality and compliance.
 </p>
 </div>
 </div>
@@ -155,14 +155,14 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
 <img src="src/assets/ChatGPT Image Jan 4, 2026, 08_58_32 PM.png" alt="Dr Maxine" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
-          Dr. Maxine
+      Dr. Maxine
 </h4>
 <p className="text-teal-600 text-sm mb-2">
-          Clinical Operations Lead
+      Clinical Operations Lead
 </p>
 <p className="text-gray-600 text-sm leading-relaxed">
-          Oversees clinical operations, ensures appropriate medicine use,
-          and aligns AfyaCore’s supply with patient-care standards.
+      Oversees clinical operations, ensures appropriate medicine use,
+      and aligns AfyaCore’s supply with patient-care standards.
 </p>
 </div>
 
@@ -172,14 +172,14 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
 <img src="src/assets/ChatGPT Image Jan 4, 2026, 08_51_00 PM.png" alt="Dr Louis Image" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
-          Dr. Louis
+      Dr. Louis
 </h4>
 <p className="text-teal-600 text-sm mb-2">
-          Supply Chain & Quality Lead
+      Supply Chain & Quality Lead
 </p>
 <p className="text-gray-600 text-sm leading-relaxed">
-          Manages pharmaceutical logistics, inventory integrity,
-          and quality assurance across AfyaCore’s supply chain.
+      Manages pharmaceutical logistics, inventory integrity,
+      and quality assurance across AfyaCore’s supply chain.
 </p>
 </div>
 
@@ -189,14 +189,14 @@ className="bg-white shadow-sm hover:shadow-lg transition rounded-2xl p-6 border 
 <img src="src/assets/ChatGPT Image Jan 4, 2026, 08_55_26 PM.png" alt="Dr Noella" />
 </div>
 <h4 className="font-semibold text-lg text-blue-800">
-          Dr. Noella
+      Dr. Noella
 </h4>
 <p className="text-teal-600 text-sm mb-2">
-          Regulatory & Compliance Lead
+      Regulatory & Compliance Lead
 </p>
 <p className="text-gray-600 text-sm leading-relaxed">
-          Ensures full compliance with PPB regulations, ethical
-          pharmaceutical practices, and governance standards.
+      Ensures full compliance with PPB regulations, ethical
+      pharmaceutical practices, and governance standards.
 </p>
 </div>
 

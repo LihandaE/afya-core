@@ -23,28 +23,26 @@ export default function App() {
         <Route path="/register" element={<Register />} />
 
         <Route
-          path="/admin"
-          element={
-            <ProtectedRoute role="admin">
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
+        path="/admin"
+        element={
+        <ProtectedRoute role="admin">
+        <AdminDashboard />
+        </ProtectedRoute>}
         />
         <Route
-          path="/retail"
-          element={
-            <ProtectedRoute role="retail">
-              <RetailDashboard />
-            </ProtectedRoute>
-          }
+        path="/retail"
+        element={
+        <ProtectedRoute role="retail">
+        <RetailDashboard />
+        </ProtectedRoute>}
         />
         <Route
-          path="/customer"
-          element={
-            <ProtectedRoute role="customer">
-              <CustomerDashboard />
-            </ProtectedRoute>
-          }
+        path="/customer"
+        element={
+        <ProtectedRoute role="customer">
+        <CustomerDashboard />
+        </ProtectedRoute>
+        }
         />
       </Routes>
       <Footer />
