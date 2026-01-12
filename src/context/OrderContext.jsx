@@ -28,6 +28,16 @@ export function OrderProvider({ children }) {
         status: "Pending",
         paymentStatus: "Unpaid",
         date: new Date().toLocaleString(),
+
+       
+       prescription:
+          user.role === "customer" && user.prescription
+            ? {
+                file: user.prescription,
+                fileName: user.prescription.name,
+                fileType: user.prescription.type,
+              }
+            : null,
       },
     ]);
 
