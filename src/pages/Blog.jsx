@@ -1,51 +1,114 @@
+import { useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export default function Blog() {
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [drugName, setDrugName] = useState("");
+  const [drugData, setDrugData] = useState(null);
+  const [error, setError] = useState("");
 
-  useEffect(() => {
-  axios
-  .get("https://api.fda.gov/drug/label.json?limit=6")
-  .then((res) => {
-  setArticles(res.data.results || []);
-  setLoading(false);
-  })
-  .catch(() => setLoading(false));
-  }, []);
+  const fetchDrugInfo = async () => {
+    setError("");
+    setDrugData(null);
+
+    if (!drugName.trim()) {
+      setError("Please enter a drug name to search.");
+      return;
+    }
+
+    try {
+      const response = await axios.get(
+        `https://api.fda.gov/drug/label.json?search=openfda.brand_name:${encodeURIComponent(
+          drugName
+        )}&limit=1`
+      );
+
+      setDrugData(response.data.results[0]);
+    } catch (err) {
+      setError("No data found or API limit reached.");
+      console.error(err);
+    }
+  };
 
   return (
-  <div className="max-w-7xl mx-auto px-6 py-16">
-  <h1 className="text-4xl font-bold mb-4 text-blue-800">
-  Medication Education & Quality Assurance
-  </h1>
+    <div className="max-w-4xl mx-auto mt-10 px-6">
+      <h1 className="text-3xl font-bold text-blue-800 mb-6">
+        Drug Research & Info
+      </h1>
 
-  <p className="text-gray-600 mb-10">
-  Learn how medicines are developed, handled, stored, and maintained
-  safely from manufacturer to patient.
-  </p>
+      <div className="mb-6 flex space-x-3">
+        <input
+          type="text"
+          placeholder="Enter drug name (e.g., Aspirin)"
+          value={drugName}
+          onChange={(e) => setDrugName(e.target.value)}
+          className="border p-3 w-full rounded"
+        />
+        <button
+          onClick={fetchDrugInfo}
+          className="bg-teal-600 text-white px-5 py-3 rounded hover:bg-teal-700"
+        >
+          Search
+        </button>
+      </div>
 
-  {loading ? (
-  <p>Loading articles...</p>
-  ) : (
-  <div className="grid md:grid-cols-3 gap-6">
-  {articles.map((item, i) => (
-  <div key={i} className="bg-white shadow rounded-xl p-6">
-  <h3 className="font-semibold mb-2">
-  {item.openfda?.brand_name?.[0] || "Medication Safety"}
-  </h3>
-  <p className="text-sm text-gray-600 mb-4">
-    Proper storage, transportation, and dispensing of medicines
-    ensures quality and patient safety.
-  </p>
-  <p className="text-xs text-gray-500">
-    Source: openFDA
-  </p>
-  </div>
-  ))}
-  </div>
-  )}
-  </div>
+      {error && (
+        <div className="text-red-600 mb-4 font-semibold">{error}</div>
+      )}
+
+      {drugData && (
+        <div className="bg-white shadow rounded-lg p-6 space-y-4">
+          {/* Drug basic info */}
+          <h2 className="text-2xl font-bold text-teal-700">
+            {drugName.toUpperCase()} — Research Overview
+          </h2>
+
+          {/* Mechanism of Action */}
+          {drugData.openfda && drugData.openfda.pharm_class_moa && (
+            <div>
+              <h3 className="text-lg font-semibold">Mechanism of Action</h3>
+              <p className="text-gray-700">
+                {drugData.openfda.pharm_class_moa.join(", ")}
+              </p>
+            </div>
+          )}
+
+          {/* Indications & Uses */}
+          {drugData.indications_and_usage && (
+            <div>
+              <h3 className="text-lg font-semibold">Indications & Uses</h3>
+              {drugData.indications_and_usage.map((item, idx) => (
+                <p key={idx} className="text-gray-700">
+                  {item}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Adverse Reactions / Side Effects */}
+          {drugData.adverse_reactions && (
+            <div>
+              <h3 className="text-lg font-semibold">Side Effects</h3>
+              {drugData.adverse_reactions.map((item, idx) => (
+                <p key={idx} className="text-gray-700">
+                  {item}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Warnings / Contraindications */}
+          {drugData.warnings && (
+            <div>
+              <h3 className="text-lg font-semibold">Contraindications & Warnings</h3>
+              {drugData.warnings.map((item, idx) => (
+                <p key={idx} className="text-gray-700">
+                  {item}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
